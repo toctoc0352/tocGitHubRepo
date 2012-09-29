@@ -19,7 +19,6 @@ public class CardTest {
 	private final static int QUEEN = 12;
 	private final static int KING = 13;
 
-
 	@Test
 	//52種類のカードプロパティをチェックするテストコード
 	public void testCheckEveryCardPropatys() {

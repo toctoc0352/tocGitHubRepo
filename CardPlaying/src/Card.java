@@ -21,6 +21,7 @@ public class Card {
 	public enum Suit{
 		SPADE,DIAMONDS,CLUB,HEART
 	}
+	
 	//スペード
 	public static final Card ACE_OF_SPADE = new Card(Suit.SPADE,ACE);
 	public static final Card TWO_OF_SPADE = new Card(Suit.SPADE,TWO);
