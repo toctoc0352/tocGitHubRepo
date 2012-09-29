@@ -62,13 +62,9 @@ public class Deck {
 		cards.add(Card.KING_OF_HEART);
 	}
 	public int count() {
-		List<Card> cards = this.cards;
-		int count = cards.size();
-		return count;
+		return this.cards.size();
 	}
 	public boolean contains(Card card) {
-		List<Card> cards = this.cards;
-		boolean isCard = cards.contains(card);
-		return isCard;
+		return this.cards.contains(card);
 	}
 }
