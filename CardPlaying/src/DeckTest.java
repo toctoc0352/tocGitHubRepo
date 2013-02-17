@@ -71,5 +71,15 @@ public class DeckTest {
 		assertTrue(deck.contains(Card.QUEEN_OF_HEART));
 		assertTrue(deck.contains(Card.KING_OF_HEART));
 	}
-
+/*
+	@Test
+	//スートごとにカードが13枚あること
+	public void testVerifyDeckContainsThirteenCardsForEachSuit() {
+		Deck deck = new Deck();
+		assertEquals(13, deck.NumberOfHearts());
+		assertEquals(13, deck.NumberOfClubs());
+		assertEquals(13, deck.NumberOfDiamonds());
+		assertEquals(13, deck.NumberOfSpades());
+	}
+*/
 }
