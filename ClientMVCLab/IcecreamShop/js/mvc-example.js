@@ -33,7 +33,7 @@ var SelectionModel = {
 	add : function(item) {
 		var list = this.list;
 		list.push(item);
-		if(list.length > icecreamMaxCount){
+		if(list.length > this.icecreamMaxCount){
 			// アイスクリーム制限個数以上の場合は
 			// 0番目を捨てる
 			list.shift();
@@ -44,12 +44,12 @@ var SelectionModel = {
 	
 	// 指定したアイスクリームが選択されていればtrueが返る
 	contain : function(icecream){
-		return this.list.indexOf(icecream);
+		return this.list.indexOf(icecream) >= 0;
 	},
 	
 	// IDで指定したアイスクリームが選択されていればtrueが返る
 	containById : function(id){
-		return this.contain(icecreamModel.findById(id));
+		return this.contain(IcecreamModel.findById(id));
 	},
 	
 	// 選択されているアイスクリームを返す
@@ -77,8 +77,9 @@ $(function (){
 				$('<li>')
 					.append($('<input type="checkbox">').attr('name',icecream.id))
 						.append($('<span>').text(icecream.name))
-					.click(function() {
-						// TODO: ここでコントローラ呼び出し
+					.click(function(event) {
+						// コントローラ呼び出し
+						onClickIcecream(event);
 					})
 			);
 		}
@@ -101,4 +102,15 @@ function updateSelectionIcecreamList(){
 			return val.name;
 		}).join(' > ')
 	);
+};
+/**
+ * Controller
+ */
+// Controller : GUIイベントからModelの更新に変換
+function onClickIcecream(event) {
+	var checkbox = $(event.currentTarget).find('input[type = "checkbox"]');
+	
+	if(checkbox){
+		SelectionModel.add(IcecreamModel.findById(checkbox.attr('name')));
+	}
 };
