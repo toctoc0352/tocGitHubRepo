@@ -27,7 +27,7 @@ var SelectionModel = {
 	list : [],
 	
 	// アイスクリームの最大選択個数
-	icecreamMaxCount = 2,
+	icecreamMaxCount : 2,
 	
 	// アイスクリームの追加
 	add : function(item) {
@@ -59,7 +59,9 @@ var SelectionModel = {
 	
 	// Viewを更新する
 	updateView : function(){
-		// TODO: Viewを更新するコードを書く
+		updateSelection();
+		updateSelectionIcecreamList();
+		
 	}
 };
 /**
@@ -97,6 +99,6 @@ function updateSelectionIcecreamList(){
 	$('#icecream-list').text(
 		$.map(SelectionModel.getIcecreams(), function(val){
 			return val.name;
-		}).join(' > ');
+		}).join(' > ')
 	);
 };
