@@ -34,6 +34,9 @@ group :production do
   gem 'pg', '0.12.2'
 end
 
+#Admin Tool
+gem 'rails_admin'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -48,3 +51,6 @@ end
 
 # To use debugger
 # gem 'debugger'
+
+
+gem "devise"
