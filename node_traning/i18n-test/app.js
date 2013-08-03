@@ -17,8 +17,6 @@ i18n.configure({
   locales: ['en', 'ja'],
   cookie: 'i18n-test-cookie',
   defaultLocale: 'ja',
-  updateFiles: false,
-  directory: __dirname + '/locales'
 });
 
 // all environments
