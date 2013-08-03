@@ -15,7 +15,9 @@ var app = express();
 // i18nの設定
 i18n.configure({
 	locales:['en','ja'],
+	defaultLocale : 'ja',
 	directory : __dirname + '/locales',
+	updateFiles : false,   //ここをfalseにしないと、localesフォルダの中のjsonが勝手に更新される
 });
 
 // all environments
