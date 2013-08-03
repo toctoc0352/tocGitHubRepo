@@ -7,17 +7,18 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , i18n = require('i18n')
-  , path = require('path');
+  , path = require('path')
+  , i18n = require('i18n');
 
 var app = express();
 
-// i18nの設定
+//i18n configure
 i18n.configure({
-	locales:['en','ja'],
-	defaultLocale : 'ja',
-	directory : __dirname + '/locales',
-	
+  locales: ['en', 'ja'],
+  cookie: 'i18n-test-cookie',
+  defaultLocale: 'ja',
+  updateFiles: false,
+  directory: __dirname + '/locales'
 });
 
 // all environments
@@ -27,11 +28,11 @@ app.set('view engine', 'ejs');
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
+app.use(express.cookieParser());
 app.use(express.methodOverride());
-app.use(i18n.init);	  //必ず app.routeの前でi18n.initを行うこと
+app.use(i18n.init); // Should always before app.route
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 // development only
 if ('development' == app.get('env')) {
