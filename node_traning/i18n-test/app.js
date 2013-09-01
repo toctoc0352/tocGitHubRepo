@@ -14,9 +14,8 @@ var app = express();
 
 //i18n configure
 i18n.configure({
-  locales: ['en', 'ja'],
+  locales: ['ja','en'],
   cookie: 'i18n-test-cookie',
-  defaultLocale: 'ja',
 });
 
 // all environments
@@ -31,6 +30,9 @@ app.use(express.methodOverride());
 app.use(i18n.init); // Should always before app.route
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+
+//デフォルト
+i18n.setLocale('ja');
 
 // development only
 if ('development' == app.get('env')) {
