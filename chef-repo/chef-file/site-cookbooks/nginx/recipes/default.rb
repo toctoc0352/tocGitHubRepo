@@ -10,3 +10,19 @@
 package "nginx" do
   action :install
 end
+
+#nginxの起動
+service "nginx" do
+  action [ :enable, :start ]
+end
+
+#設定ファイルの設置
+template "nginx.conf" do
+  path "/etc/nginx/nginx.conf"
+  owner "root"
+  group "root"
+  mode 0644
+
+  #ファイルが更新されたら、サービスをリロード
+  notifies :reload, 'service[nginx]'
+end
