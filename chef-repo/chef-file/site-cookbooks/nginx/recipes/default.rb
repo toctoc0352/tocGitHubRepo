@@ -13,6 +13,7 @@ end
 
 #nginxの起動
 service "nginx" do
+  supports :status => true, :restart => true, :reload => true
   action [ :enable, :start ]
 end
 
