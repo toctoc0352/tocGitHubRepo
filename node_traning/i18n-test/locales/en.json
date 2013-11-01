@@ -1,0 +1,7 @@
+{
+	"TITLE": "Express_i18n App Sample",
+	"HELLO": "Hello",
+	"TEST %s" : "This message from %s",
+	"TEST2 %s %s" : "This is two params message 1 : %s, 2 : %s",
+	"lang" : "English",
+}
