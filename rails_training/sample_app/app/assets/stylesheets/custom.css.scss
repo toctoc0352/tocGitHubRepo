@@ -1,7 +1,10 @@
 
 @import "bootstrap";
 
-/* mixins, variables, etc. */
+/* 
+ * mixins, variables, etc.
+ * http://bootstrapdocs.com/v2.0.4/docs/less.html 
+ */
 
 $grayMediumLight: #eaeaea;
 
@@ -81,7 +84,7 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
-  color: $lightGray;
+  color: $grayLight;
   a {
     color: $gray;
     &:hover{
