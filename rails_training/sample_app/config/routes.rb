@@ -1,11 +1,6 @@
 SampleApp::Application.routes.draw do
   
-
   get "users/new"
-
-  devise_for :users
-
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   root :to => 'static_pages#home'  
   #match '/', to: 'static_pages#home'
