@@ -2,10 +2,12 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'bootstrap-sass', '2.1'
+#For create password hash
+gem 'bcrypt-ruby', '3.0.1'
 
 group :development do
   gem 'sqlite3', '1.3.5'
-  #gem 'annotate', '2.5.0'
+  gem 'annotate', '2.5.0'
 end
 
 group :development, :test do
@@ -36,9 +38,6 @@ group :production do
   gem 'pg', '0.12.2'
 end
 
-#Admin Tool
-#gem 'rails_admin'
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -54,5 +53,8 @@ end
 # To use debugger
 # gem 'debugger'
 
-
+#auth
 #gem "devise"
+
+#Admin Tool
+#gem 'rails_admin'
