@@ -17,14 +17,14 @@ describe "UserPages" do
     let(:submit) { "Create my account" }
     
     #無効なユーザの登録
-    describe "with invalid infomation" do
+    describe "with invalid information" do
       it "should not create a user" do
         expect { click_button submit }.not_to change(User, :count)
       end    
     end
     
     #有効なユーザの登録
-    describe "with valid infomation" do
+    describe "with valid information" do
       before do
         #各入力項目を入力
         fill_in "Name",               with: "Example User"
