@@ -6,6 +6,8 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:session][:email].downcase)
     if user && user.authenticate(params[:sessinon][:password])
       #TODO ユーザをサインインさせ、ユーザーページ (show) にリダイレクトする。
+      sign_in user
+      redirect_to user
     else
       #flash.now
       #flashの場合とは異なり、他のリクエストが発生したらすぐにメッセージを消す
