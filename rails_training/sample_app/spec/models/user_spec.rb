@@ -110,6 +110,9 @@ describe User do
   
       it { should_not == user_for_invalid_password }
       specify { user_for_invalid_password.should be_false }
+      #itと同義
+      #itを使用すると英語として不自然な場合にこれで代用することができる 
+      # it { user_for_invalid_password.should be_false }
     end
   end
   
