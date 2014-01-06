@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_email(params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      #ユーザをサインインさせ、ユーザーページ (show) にリダイレクトする。
+      #ユーザをサインインさせる
       sign_in user
-      redirect_to user
+      redirect_back_or user
     else
       #flash.now
       #flashの場合とは異なり、他のリクエストが発生したらすぐにメッセージを消す
