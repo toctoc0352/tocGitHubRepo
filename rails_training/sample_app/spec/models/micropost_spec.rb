@@ -25,5 +25,5 @@ describe Micropost do
          Micropost.new(user_id: user.id)
        end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
      end    
-   end
+   end   
 end
