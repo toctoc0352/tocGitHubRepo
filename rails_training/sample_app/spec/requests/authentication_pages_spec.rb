@@ -92,6 +92,18 @@ describe "Authentication" do
         it { should have_link('Sign in', href: signin_path) }
       end
       
+      describe "in the Micropost controller" do
+        
+        describe "submitting a create action" do
+          before {post microposts_path}
+          specify { response.should redirect_to(signin_path) }  
+        end
+        
+        describe "submitting a destroy action" do
+          before {delete micropost_path(FactoryGirl.create(:micropost))}
+          specify { response.should redirect_to(signin_path) }  
+        end
+      end      
     end
     
     describe "as wrong user" do
