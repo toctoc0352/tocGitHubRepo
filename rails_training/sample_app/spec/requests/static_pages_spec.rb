@@ -31,6 +31,18 @@ describe "Static pages" do
           page.should have_selector("li##{item.id}", text: item.content)
         end       
       end
+      it { should have_content("#{user.microposts.count} microposts") }
+      specify do
+        user.microposts.find(:last).destroy
+        visit root_path          
+        page.should have_selector("span", test: "1 micropost")         
+      end
+      describe "pagination" do
+        before(:all) { 30.times { FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum") } }
+        after(:all) {user.microposts.delete_all}
+        
+        it { should have_selector('div.pagination') }
+      end
     end
   end
 
