@@ -20,6 +20,7 @@ describe User do
   it { should respond_to(:authenticate) }
   it { should respond_to(:microposts) }
   it { should respond_to(:feed) }
+  it { should respond_to(:relationships) }
   
   #@userオブジェクトが有効かどうか
   #@user.valid? の実行と同義
