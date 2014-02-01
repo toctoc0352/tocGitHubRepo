@@ -21,6 +21,7 @@ describe User do
   it { should respond_to(:microposts) }
   it { should respond_to(:feed) }
   it { should respond_to(:relationships) }
+  it { should respond_to(:followed_users) }
   
   #@userオブジェクトが有効かどうか
   #@user.valid? の実行と同義
