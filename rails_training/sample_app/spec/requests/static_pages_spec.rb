@@ -31,6 +31,18 @@ describe "Static pages" do
           page.should have_selector("li##{item.id}", text: item.content)
         end       
       end
+      
+      describe "follower/following counts" do
+        let(:other_user) { FactoryGirl.create(:user) }
+        before do
+          other_user.follow!(user)
+          visit root_path
+        end
+        
+        it { should have_link("0 following", href: following_user_path(user)) }
+        it { should have_link("1 following", href: followers_user_path(user)) }
+      end
+      
       it { should have_content("#{user.microposts.count} microposts") }
       specify do
         user.microposts.find(:last).destroy
@@ -87,4 +99,4 @@ describe "Static pages" do
     page.should have_selector 'title', text: full_title('')
     page.should_not have_selector 'title', text: '| Home'
   end
-end
+ end
