@@ -40,7 +40,7 @@ describe "Static pages" do
         end
         
         it { should have_link("0 following", href: following_user_path(user)) }
-        it { should have_link("1 following", href: followers_user_path(user)) }
+        it { should have_link("1 followers", href: followers_user_path(user)) }
       end
       
       it { should have_content("#{user.microposts.count} microposts") }
